@@ -25,7 +25,7 @@ export default function Footer() {
         <div>
           <h3 className="text-2xl font-extrabold mb-4 font-heading">
             <span className="text-ink">Job</span>
-            <span className="text-white">Nqw</span>
+            <span className="text-white">Now</span>
           </h3>
           <p className="text-sm text-white/80 leading-relaxed max-w-xs">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
@@ -60,7 +60,7 @@ export default function Footer() {
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className="flex items-center gap-1 text-sm text-white/80 hover:text-white transition-colors"
+                  className="flex items-center gap-1 text-sm text-white/80 transition-colors duration-300 ease-out hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded-sm"
                 >
                   <HiChevronRight className="text-xs" />
                   {link.label}
@@ -79,7 +79,7 @@ export default function Footer() {
               <a
                 key={i}
                 href={href}
-                className="w-9 h-9 rounded-lg bg-white flex items-center justify-center hover:opacity-90 transition-opacity"
+                className="w-9 h-9 rounded-lg bg-white flex items-center justify-center transition-all duration-300 ease-out hover:opacity-90 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
               >
                 <Icon className={`text-sm ${color}`} />
               </a>

@@ -15,7 +15,7 @@ export default function Hero() {
       {/* Decorative green panel */}
       <div className="hidden md:block absolute top-0 right-0 w-[45%] h-[520px] bg-primary rounded-bl-[100px]" />
 
-      {/* Navbar overlay - spans both backgrounds */}
+      {/* Navbar overlay - logo & links sit on the light background, Sign In / Create Account sit on the green */}
       <div className="relative z-20 max-w-container mx-auto px-6 md:px-10 flex items-center justify-between h-24">
         <Link href="/" className="text-2xl font-extrabold text-ink font-heading">
           Job<span className="text-primary">Nqw</span>
@@ -49,7 +49,7 @@ export default function Hero() {
 
       <div className="max-w-container mx-auto px-6 md:px-10 pt-6 pb-24 md:pb-32 relative">
         <div className="max-w-xl relative z-10">
-          <h1 className="text-3xl md:text-5xl font-extrabold leading-tight text-ink mb-5 font-heading">
+          <h1 className="text-3xl md:text-5xl font-heading font-bold leading-[1.15] tracking-tight text-ink mb-5">
             Search, Find, &amp; Apply
           </h1>
           <p className="text-sm md:text-base text-gray-text leading-relaxed mb-8 max-w-md">

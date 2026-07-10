@@ -13,3 +13,29 @@ body {
 h1, h2, h3, h4, h5, h6 {
   @apply font-heading;
 }
+
+/* Hides scrollbars on horizontally-scrollable rows (e.g. category chips)
+   while keeping them fully scrollable/accessible via touch, trackpad, and keyboard. */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom Swiper pagination for the testimonials slider, kept in the site's palette. */
+.testimonial-pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: theme("colors.gray.border");
+  opacity: 1;
+  border-radius: 9999px;
+  transition: width 300ms ease, background-color 300ms ease;
+}
+
+.testimonial-pagination .swiper-pagination-bullet-active {
+  width: 20px;
+  background-color: theme("colors.primary.DEFAULT");
+}

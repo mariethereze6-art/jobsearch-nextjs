@@ -23,7 +23,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        heading: ["var(--font-baloo)", "sans-serif"],
+        heading: ["var(--font-poppins)", "sans-serif"],
         body: ["var(--font-inter)", "sans-serif"],
       },
       maxWidth: {

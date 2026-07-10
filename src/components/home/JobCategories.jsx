@@ -1,9 +1,14 @@
+"use client";
+
+import { useState } from "react";
 import { categories } from "@/src/data/categories";
 import Button from "@/src/components/ui/Button";
 import SectionHeading from "@/src/components/ui/SectionHeading";
 import CategoryCard from "@/src/components/home/CategoryCard";
 
 export default function JobCategories() {
+  const [activeId, setActiveId] = useState(categories[0]?.id);
+
   return (
     <section className="bg-primary-light py-16 md:py-24">
       <div className="max-w-container mx-auto px-6 md:px-10">
@@ -12,19 +17,20 @@ export default function JobCategories() {
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lacus non orci euismod vestibulum vitae ut ex. Quisque ut arcu at lectus tristique auctor sit amet at turpis."
         />
 
-        <div className="flex gap-6 overflow-x-auto pb-4 md:justify-center md:flex-wrap">
+        <div className="scrollbar-hide flex gap-6 overflow-x-auto pb-4 md:flex-wrap md:justify-center">
           {categories.map((cat) => (
             <CategoryCard
               key={cat.id}
               icon={cat.icon}
               title={cat.title}
               count={cat.count}
-              active={cat.active}
+              isActive={cat.id === activeId}
+              onClick={() => setActiveId(cat.id)}
             />
           ))}
         </div>
 
-        <div className="flex justify-center mt-10">
+        <div className="mt-10 flex justify-center">
           <Button variant="outline">View More</Button>
         </div>
       </div>
