@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Link from "next/link";
 import { HiOutlineSearch, HiOutlineLocationMarker, HiOutlineLogin, HiChevronDown } from "react-icons/hi";
 import { HiOutlineChartBarSquare, HiOutlineShieldCheck } from "react-icons/hi2";
@@ -9,7 +10,23 @@ const navLinks = [
   { label: "Contact", href: "#" },
 ];
 
+// Reasonable default city list — swap for a real data source (API, CMS, etc.) when available.
+const locations = [
+  "New York, NY",
+  "San Francisco, CA",
+  "Los Angeles, CA",
+  "Chicago, IL",
+  "Austin, TX",
+  "Seattle, WA",
+  "Boston, MA",
+  "Denver, CO",
+  "Miami, FL",
+  "Remote",
+];
+
 export default function Hero() {
+  const [location, setLocation] = useState("");
+
   return (
     <section className="relative bg-gray-light overflow-hidden">
       {/* Decorative green panel */}
@@ -68,14 +85,30 @@ export default function Hero() {
               />
             </div>
             <div className="hidden sm:block w-px bg-gray-border h-6" />
-            <div className="flex items-center gap-2 flex-1 px-3 py-2">
+            <div className="relative flex items-center gap-2 flex-1 px-3 py-2">
               <HiOutlineLocationMarker className="text-gray-text text-lg shrink-0" />
-              <input
-                type="text"
-                placeholder="Location"
-                className="w-full text-sm outline-none placeholder:text-gray-text bg-transparent"
-              />
-              <HiChevronDown className="text-gray-text text-base shrink-0" />
+              <label htmlFor="hero-location" className="sr-only">
+                Location
+              </label>
+              <select
+                id="hero-location"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                aria-label="Select a location"
+                className={`w-full appearance-none bg-transparent text-sm outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded-md cursor-pointer pr-5 ${
+                  location ? "text-ink" : "text-gray-text"
+                }`}
+              >
+                <option value="" disabled>
+                  Location
+                </option>
+                {locations.map((city) => (
+                  <option key={city} value={city} className="text-ink">
+                    {city}
+                  </option>
+                ))}
+              </select>
+              <HiChevronDown className="pointer-events-none absolute right-3 text-gray-text text-base shrink-0" />
             </div>
             <button className="bg-primary hover:bg-primary-dark text-white text-sm font-semibold rounded-full px-8 py-3 transition-colors">
               Search
