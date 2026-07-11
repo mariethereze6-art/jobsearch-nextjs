@@ -1,3 +1,4 @@
+import Navbar from "@/src/components/layout/Navbar";
 import Footer from "@/src/components/layout/Footer";
 import Hero from "@/src/components/home/Hero";
 import HowItWorks from "@/src/components/home/HowItWorks";
@@ -10,6 +11,7 @@ import RegisterCTA from "@/src/components/home/RegisterCTA";
 export default function Home() {
   return (
     <>
+      <Navbar />
       <Hero />
       <HowItWorks />
       <PromoBanner />

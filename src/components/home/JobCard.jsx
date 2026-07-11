@@ -1,25 +1,16 @@
+import Image from "next/image";
 import Link from "next/link";
 import { HiOutlineLocationMarker, HiOutlineClock, HiArrowRight } from "react-icons/hi";
-import ImageWithFallback from "@/src/components/ui/ImageWithFallback";
-import { getInitials } from "@/src/lib/getInitials";
 
 export default function JobCard({ job }) {
   return (
-    <div className="bg-white rounded-card border border-gray-border p-6 flex flex-col gap-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
+    <div className="bg-white rounded-card border border-gray-border p-6 flex flex-col gap-4 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg">
       <div className="flex items-center gap-3">
         <div
-          className="w-12 h-12 rounded-full flex items-center justify-center overflow-hidden relative shrink-0"
+          className="w-12 h-12 rounded-full flex items-center justify-center overflow-hidden relative"
           style={{ backgroundColor: job.logoBg }}
         >
-          <ImageWithFallback
-            src={job.logo}
-            alt={job.company}
-            fill
-            className="object-contain p-2"
-            initials={getInitials(job.company)}
-            fallbackClassName=""
-            fallbackTextClassName="text-ink"
-          />
+          <Image src={job.logo} alt={job.company} fill className="object-contain p-2" />
         </div>
         <div>
           <h3 className="text-base font-semibold text-ink">{job.title}</h3>
@@ -40,7 +31,7 @@ export default function JobCard({ job }) {
 
       <Link
         href="#"
-        className="flex items-center gap-1 text-primary text-sm font-semibold transition-all duration-300 ease-out hover:gap-2"
+        className="flex items-center gap-1 text-primary text-sm font-semibold hover:gap-2 transition-all"
       >
         Apply Now <HiArrowRight />
       </Link>
